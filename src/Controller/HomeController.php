@@ -21,7 +21,7 @@ class HomeController extends AbstractController
         return $this->render('index.html.twig');
     }
 
-    #[Route('/{path}')]
+    #[Route('/template/{path}')]
     public function root($path)
     {
         if ($this->loader->exists($path.'.html.twig')) {
