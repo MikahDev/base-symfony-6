@@ -46,6 +46,9 @@
                             </a>
                         </div>
                         <div class="p-2">
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey }}</div>
+                            {% endif %}
                             <form class="form-horizontal" method="post">
 
                                 <div class="mb-3">
@@ -62,7 +65,7 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-check">
+                                    <input class="form-check-input" type="checkbox" name="_remember_me" id="remember-check">
                                     <label class="form-check-label" for="remember-check">
                                         Remember me
                                     </label>
