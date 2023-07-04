@@ -28,6 +28,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    private ?string $plainpassword;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -95,6 +97,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->plainPassword = null;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getPlainpassword(): ?string
+    {
+        return $this->plainpassword;
+    }
+
+    /**
+     * @param string|null $plainpassword
+     */
+    public function setPlainpassword(?string $plainpassword): void
+    {
+        $this->plainpassword = $plainpassword;
+    }
+
+
 }
