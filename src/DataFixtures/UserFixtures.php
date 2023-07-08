@@ -11,7 +11,10 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         UserFactory::createOne([
-            'email' => "super_admin@99bikes.com.au",
+            'email' => "m.villeprat@gmail.com",
+            'firstname' => "Michael",
+            'lastname' => "Villeprat",
+            'plainPassword' => "password",
             'roles' => ['ROLE_ADMIN']
             ]);
 
