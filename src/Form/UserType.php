@@ -19,7 +19,10 @@ class UserType extends AbstractType
             ->add('email', EmailType::class)
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
-            ->add('password', PasswordType::class)
+            ->add('plainpassword', PasswordType::class, [
+                'required'   => is_null($builder->getData()->getId()),
+                'label' => 'Password'
+            ])
             ->add('roles', ChoiceType::class, [
                 'multiple' => true,
                 'choices' => [
