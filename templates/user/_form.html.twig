@@ -1,57 +1,47 @@
- <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                {{ form_start(form) }}
-                <div class="mb-3 row">
-                    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.email) }}</label>
-                    <div class="col-md-10">
-                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-                        <div class="form-error">
-                            {{ form_errors(form.email) }}
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.firstname) }}</label>
-                    <div class="col-md-10">
-                        {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.lastname) }}</label>
-                    <div class="col-md-10">
-                        {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.plainpassword) }}</label>
-                    <div class="col-md-10">
-                        {{ form_widget(form.plainpassword, {'attr': {'class': 'form-control'}}) }}
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.roles) }}</label>
-                    <div class="col-md-10">
-                        {{ form_widget(form.roles, {'attr': {'class': 'select2 form-control select2-multiple'}}) }}
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-sm-9">
-                        <button class="btn btn-primary w-md">{{ button_label|default('Save') }}</button>
-                        {{ form_end(form) }}
-                        <a class="btn btn-secondary w-md" href="{{ path('app_user_index') }}">back to list</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-9">
-                        {% if user.id %}
-                            {{ include('user/_delete_form.html.twig') }}
-                        {% endif %}
-                    </div>
-                </div>
-
-            </div>
+{{ form_start(form) }}
+<div class="mb-3 row">
+    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.email) }}</label>
+    <div class="col-md-10">
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        <div class="form-error">
+            {{ form_errors(form.email) }}
         </div>
+    </div>
+</div>
+<div class="mb-3 row">
+    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.firstname) }}</label>
+    <div class="col-md-10">
+        {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="mb-3 row">
+    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.lastname) }}</label>
+    <div class="col-md-10">
+        {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="mb-3 row">
+    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.plainpassword) }}</label>
+    <div class="col-md-10">
+        {{ form_widget(form.plainpassword, {'attr': {'class': 'form-control'}}) }}
+    </div>
+</div>
+<div class="mb-3 row">
+    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.roles) }}</label>
+    <div class="col-md-10">
+        {{ form_widget(form.roles, {'attr': {'class': 'select2 form-control select2-multiple'}}) }}
+    </div>
+</div>
+<div class="mb-3 row">
+    <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.profilePicture) }}</label>
+    <div class="col-md-10">
+        {{ form_widget(form.profilePicture) }}
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-sm-9">
+        <button class="btn btn-primary w-md">{{ button_label|default('Save') }}</button>
+        {{ form_end(form) }}
+        <a class="btn btn-secondary w-md" href="{{ path('app_user_index') }}">back to list</a>
     </div>
 </div>

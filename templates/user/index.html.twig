@@ -36,14 +36,24 @@
                                         {% for user in users %}
                                         <tr>
                                             <td>
-                                                <div class="form-check font-size-16">
-                                                    <input class="form-check-input" type="checkbox" id="customerlistcheck01">
-                                                    <label class="form-check-label" for="customerlistcheck01"></label>
+                                                <div class="avatar-xs">
+                                                    {% if user.profilePicturePath %}
+                                                        <img class="rounded-circle avatar-xs" src="{{ user.profilePicturePath() }}" alt="">
+                                                    {% else %}
+                                                        <span class="avatar-title rounded-circle">
+                                                            {{ user.firstname|first|capitalize }}
+                                                        </span>
+                                                    {% endif %}
                                                 </div>
                                             </td>
                                             <td>{{ user.firstname~' '~user.lastname }}</td>
                                             <td>{{ user.email }}</td>
-                                            <td><span class="badge bg-success font-size-12">{{ user.roles ? user.roles|json_encode : '' }}</span></td>
+                                            <td>
+                                                {% for role in user.roles %}
+                                                    <span href="javascript: void(0);" class="badge badge-soft-primary font-size-11 m-1">{{ role }}</span>
+
+                                                {% endfor %}
+                                            </td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown" aria-expanded="false">

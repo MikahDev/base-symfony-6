@@ -32,13 +32,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    private ?string $plainpassword;
+    private ?string $plainpassword = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $profilePictureFilename = null;
 
     public function getId(): ?int
     {
@@ -107,7 +110,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        $this->plainPassword = null;
+        $this->plainpassword = null;
     }
 
     /**
@@ -148,6 +151,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->lastname = $lastname;
 
         return $this;
+    }
+
+    public function getProfilePictureFilename(): ?string
+    {
+        return $this->profilePictureFilename;
+    }
+
+    public function setProfilePictureFilename(?string $profilePictureFilename): static
+    {
+        $this->profilePictureFilename = $profilePictureFilename;
+
+        return $this;
+    }
+
+    public function getProfilePicturePath(): ?string
+    {
+        if ($this->getProfilePictureFilename())
+        {
+            return '/uploads/profile_pictures/'.$this->getProfilePictureFilename();
+        }
+
+        return null;
     }
 
 
