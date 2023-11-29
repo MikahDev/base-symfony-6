@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-2">
+                                    <div class="col-sm-4">
+                                        <div class="search-box me-2 mb-2 d-inline-block">
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control" placeholder="Search...">
+                                                <i class="bx bx-search-alt search-icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="text-sm-end">
+                                        </div>
+                                    </div><!-- end col-->
+                                </div>
+
+                                <h2>Application Settings</h2>
+                                <form method="post" action="{{ path('config_index') }}">
+                                    {{ form_start(form) }}
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.app_name) }}</label>
+                                        <div class="col-md-10">
+                                            {{ form_widget(form.app_name, {'attr': {'class': 'form-control'}}) }}
+                                            <div class="form-error">
+                                                {{ form_errors(form.app_name) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.logo) }}</label>
+                                        <div class="col-md-10">
+                                            {{ form_widget(form.logo, {'attr': {'class': 'form-control'}}) }}
+                                            <div class="form-error">
+                                                {{ form_errors(form.logo) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">{{ form_label(form.theme) }}</label>
+                                        <div class="col-md-10">
+                                            {{ form_widget(form.theme, {'attr': {'class': 'form-control'}}) }}
+                                            <div class="form-error">
+                                                {{ form_errors(form.theme) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-9">
+                                            <button class="btn btn-primary w-md">{{ button_label|default('Save') }}</button>
+                                            {{ form_end(form) }}
+                                        </div>
+                                    </div>
+                                    {{ form_end(form) }}
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+{% endblock %}
