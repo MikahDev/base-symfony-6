@@ -1,0 +1,32 @@
+<!-- ========== Left Sidebar Start ========== -->
+<div class="vertical-menu">
+
+    <div data-simplebar class="h-100">
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title" key="t-menu">{% trans %}Menu{% endtrans %}</li>
+                    {% for item in menuBuilder.getMenu() %}
+                        <li>
+                            <a href="{{ path(item.route) }}" class="waves-effect">
+                                {% if item.icon %}<i class="bx {{ item.icon }}"></i><span class="badge rounded-pill bg-info float-end">04</span>{% endif %}
+                                <span key="t-dashboards">{{ item.title }}</span>
+                            </a>
+                            {% if item.children|default(false) %}
+                                <ul class="sub-menu" aria-expanded="false">
+                                    {% for child in item.children %}
+                                        <li><a href="{{ path(child.route) }}">{{ child.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+<!-- Left Sidebar End -->
