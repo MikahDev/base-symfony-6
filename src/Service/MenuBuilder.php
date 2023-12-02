@@ -13,6 +13,13 @@ class MenuBuilder
                 // 'roles' => ['ROLE_USER'], // for role-based items
                 // 'children' => [...], // for submenus
             ],
+            [
+                'title' => 'Config',
+                'route' => 'config_index',
+                'icon' => 'bx-cog',
+                // 'roles' => ['ROLE_USER'], // for role-based items
+                // 'children' => [...], // for submenus
+            ],
             // ... other menu items
         ]
     ) {}

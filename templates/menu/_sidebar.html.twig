@@ -11,7 +11,7 @@
                     {% for item in menuBuilder.getMenu() %}
                         <li>
                             <a href="{{ path(item.route) }}" class="waves-effect">
-                                {% if item.icon %}<i class="bx {{ item.icon }}"></i><span class="badge rounded-pill bg-info float-end">04</span>{% endif %}
+                                {% if item.icon %}<i class="bx {{ item.icon }}"></i>{% endif %}
                                 <span key="t-dashboards">{{ item.title }}</span>
                             </a>
                             {% if item.children|default(false) %}

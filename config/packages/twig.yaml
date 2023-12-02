@@ -3,6 +3,7 @@ twig:
 
     globals:
         menuBuilder: '@App\Service\MenuBuilder'
+        appConfig: '@App\Service\Config'
 
 when@test:
     twig:
